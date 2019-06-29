@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admincontroller">
+  <tabs>
+    <Tab fx:id="bookmanage" text="书籍信息管理">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane prefHeight="362.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="bookintab" text="新书录入">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="312.0" layoutY="25.0" text="书籍名称：" />
+                                    <Label layoutX="20.0" layoutY="68.0" text="书籍作者：" />
+                                    <Label layoutX="325.0" layoutY="68.0" text="出版社:" />
+                                    <Label layoutX="20.0" layoutY="108.0" text="书籍分类：" />
+                                    <Label layoutX="327.0" layoutY="108.0" text="价格：" />
+                                    <Label layoutX="20.0" layoutY="152.0" text="馆藏地址：" />
+                                    <TextField fx:id="bookinbooknametextfield" layoutX="384.0" layoutY="20.0" />
+                                    <TextField fx:id="bookinauthortextfield" layoutX="95.0" layoutY="63.0" />
+                                    <TextField fx:id="bookinpresstextfield" layoutX="384.0" layoutY="63.0" />
+                                    <TextField fx:id="bookinclasstextfield" layoutX="95.0" layoutY="103.0" />
+                                    <TextField fx:id="bookinpricetextfield" layoutX="387.0" layoutY="103.0" />
+                                    <TextField fx:id="bookinlocationtextfield" layoutX="95.0" layoutY="147.0" />
+                                    <Button fx:id="bookininbutton" layoutX="287.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#bookin" text="录入" />
+                                    <TextField fx:id="bookinnumtextfield" layoutX="95.0" layoutY="20.0" />
+                                    <Label layoutX="20.0" layoutY="25.0" text="数量：" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab fx:id="bookdowntab" text="旧书下架">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="bookdowntableview" layoutY="86.0" prefHeight="170.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="bookdowncolumnbookid" prefWidth="75.0" text="书籍iD" />
+                                        <TableColumn fx:id="bookdowncolumnbookname" prefWidth="75.0" text="书名" />
+                                          <TableColumn fx:id="bookdowncolumnauthor" prefWidth="97.0" text="作者" />
+                                          <TableColumn fx:id="bookdowncolumnpress" prefWidth="127.0" text="出版社" />
+                                          <TableColumn fx:id="bookdowncolumnclass" prefWidth="74.0" text="类别" />
+                                          <TableColumn fx:id="bookdowncolumnlocation" prefWidth="151.0" text="馆藏地址" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="bookdowndownbutton" layoutX="275.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#bookdown" text="下架" />
+                                    <Label layoutX="10.0" layoutY="7.0" text="书籍ID：" />
+                                    <Label layoutX="166.0" layoutY="7.0" text="书名：" />
+                                    <Label layoutX="18.0" layoutY="47.0" text="类别：" />
+                                    <Label layoutX="166.0" layoutY="47.0" text="出版社：" />
+                                    <Label layoutX="415.0" layoutY="7.0" text="作者：" />
+                                    <TextField fx:id="bookdownbookidtextfield" layoutX="63.0" layoutY="2.0" prefHeight="30.0" prefWidth="88.0" promptText="所有" />
+                                    <TextField fx:id="bookdownbooknametextfield" layoutX="211.0" layoutY="2.0" prefHeight="30.0" prefWidth="196.0" promptText="所有" />
+                                    <TextField fx:id="bookdownauthortextfield" layoutX="454.0" layoutY="2.0" prefHeight="30.0" prefWidth="104.0" promptText="所有" />
+                                    <TextField fx:id="bookdownclasstextfield" layoutX="57.0" layoutY="42.0" prefHeight="30.0" prefWidth="99.0" promptText="所有" />
+                                    <TextField fx:id="bookdownpresstextfield" layoutX="224.0" layoutY="42.0" promptText="所有" />
+                                    <Button fx:id="bookdownquerybutton" layoutX="460.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#bookdownquery" text="查询" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="bookquerytab" text="书籍查询">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="20.0" layoutY="9.0" text="书名:" />
+                                    <Label layoutX="449.0" layoutY="10.0" text="类别:" />
+                                    <Label layoutX="20.0" layoutY="45.0" text="出版社:" />
+                                    <Label layoutX="271.0" layoutY="10.0" text="作者:" />
+                                    <RadioButton fx:id="bookqueryfreeradiobutton" layoutX="286.0" layoutY="45.0" mnemonicParsing="false" onAction="#bookquery" text="只看空闲" />
+                                    <TextField fx:id="bookquerybooknametextfield" layoutX="59.0" layoutY="4.0" promptText="所有" />
+                                    <TextField fx:id="bookqueryclasstextfield" layoutX="495.0" layoutY="5.0" prefHeight="31.0" prefWidth="83.0" promptText="所有" />
+                                    <TextField fx:id="bookquerypresstextfield" layoutX="69.0" layoutY="40.0" promptText="所有" />
+                                    <TextField fx:id="bookqueryauthortextfield" layoutX="318.0" layoutY="4.0" prefHeight="31.0" prefWidth="125.0" promptText="所有" />
+                                    <TableView fx:id="bookquerytableview" layoutY="76.0" prefHeight="248.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="bookquerycolumnbookid" prefWidth="54.0" text="书籍ID" />
+                                        <TableColumn fx:id="bookquerycolumnbookname" prefWidth="133.0" text="书籍名称" />
+                                          <TableColumn fx:id="bookquerycolumnauthor" prefWidth="69.0" text="作者" />
+                                          <TableColumn fx:id="bookquerycolumnpress" prefWidth="123.0" text="出版社" />
+                                          <TableColumn fx:id="bookquerycolumnclass" prefWidth="59.0" text="类别" />
+                                          <TableColumn fx:id="bookquerycolumnlocation" prefWidth="85.0" text="馆藏地址" />
+                                          <TableColumn fx:id="bookquerycolumnfree" prefWidth="75.0" text="是否空闲" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="bookqueryquerybutton" layoutX="426.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#bookquery" text="查询" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="readermanage" text="读者信息管理">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane prefHeight="363.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="readerintab" text="录入读者">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="153.0" layoutY="49.0" text="读者ID：" />
+                                    <Label layoutX="153.0" layoutY="88.0" text="姓名：" />
+                                    <Label layoutX="153.0" layoutY="163.0" text="密码：" />
+                                    <Label layoutX="153.0" layoutY="125.0" text="性别：" />
+                                    <Button fx:id="readerininbutton" layoutX="234.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#readerin" text="录入" />
+                                    <TextField fx:id="readerinreaderidtextfield" layoutX="234.0" layoutY="44.0" />
+                                    <TextField fx:id="readerinreadernametextfield" layoutX="234.0" layoutY="83.0" />
+                                    <TextField fx:id="readerinpasswordtextfield" layoutX="234.0" layoutY="158.0" />
+                                    <ComboBox fx:id="readerinsexcombobox" layoutX="234.0" layoutY="120.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="readerouttab" text="注销读者">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="12.0" layoutY="14.0" text="读者ID：" />
+                                    <TextField fx:id="readeroutreaderidtextfield" layoutX="93.0" layoutY="14.0" />
+                                    <TextField fx:id="readeroutreadernametextfield" layoutX="348.0" layoutY="14.0" prefHeight="30.0" prefWidth="91.0" />
+                                    <Label layoutX="303.0" layoutY="19.0" text="姓名：" />
+                                    <Button fx:id="readeroutoutbutton" layoutX="275.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#readerout" text="注销" />
+                                    <TableView fx:id="readerouttableview" layoutY="54.0" prefHeight="200.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="readeroutcolumnreaderid" prefWidth="129.0" text="读者ID" />
+                                        <TableColumn fx:id="readeroutcolumnreadername" prefWidth="351.0" text="读者姓名" />
+                                          <TableColumn fx:id="readeroutcolumnsex" prefWidth="119.0" text="读者性别" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="readeroutquerybutton" layoutX="469.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#readeroutquery" text="查询" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="readermodifytab" text="修改读者信息">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="readermodifymodifybutton" layoutX="234.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#readermodify" text="修改" />
+                                    <Label layoutX="153.0" layoutY="49.0" text="读者ID：" />
+                                    <Label layoutX="153.0" layoutY="88.0" text="姓名：" />
+                                    <Label layoutX="153.0" layoutY="125.0" text="性别：" />
+                                    <Label layoutX="153.0" layoutY="163.0" text="密码：" />
+                                    <ComboBox fx:id="readermodifysexcombobox" layoutX="234.0" layoutY="120.0" prefWidth="150.0" />
+                                    <TextField fx:id="readermodifyreaderidtextfield" layoutX="234.0" layoutY="44.0" />
+                                    <TextField fx:id="readermodifyreadernametextfield" layoutX="234.0" layoutY="83.0" />
+                                    <TextField fx:id="readermodifypasswordtextfield" layoutX="234.0" layoutY="158.0" />
+                                    <Button fx:id="readermodifyquerybutton" layoutX="456.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#readermodifyquery" text="查询" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="readerquerytab" text="查询读者信息">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="65.0" layoutY="41.0" text="读者ID：" />
+                                    <TextField fx:id="readerqueryreaderidtextfield" layoutX="149.0" layoutY="36.0" />
+                                    <Button fx:id="readerqueryquerybutton" layoutX="375.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#readerquery" text="查询" />
+                                    <TextField fx:id="readerqueryreadernametextfield" editable="false" layoutX="149.0" layoutY="89.0" />
+                                    <TextField fx:id="readerquerysextextfield" editable="false" layoutX="149.0" layoutY="147.0" />
+                                    <TextField fx:id="readerquerypasswordtextfield" editable="false" layoutX="149.0" layoutY="198.0" />
+                                    <Label layoutX="73.0" layoutY="94.0" text="姓名：" />
+                                    <Label layoutX="73.0" layoutY="152.0" text="性别：" />
+                                    <Label layoutX="73.0" layoutY="203.0" text="密码：" />
+                                    <Button fx:id="readerqueryclearbutton" layoutX="442.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#clearreaderquery" text="清除" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="borrowreturntab" text="借还书管理">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="975.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="19.0" text="读者ID：" />
+                  <Label layoutX="360.0" layoutY="219.0" text="是否损坏：" />
+                  <Button fx:id="borrowreturnreturnbutton" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#returnbook" text="还书" />
+                  <TextField fx:id="borrowreturnreaderidtextfield" layoutX="79.0" layoutY="14.0" />
+                  <ComboBox fx:id="borrowreturnbrokencombobox" layoutX="445.0" layoutY="214.0" prefHeight="30.0" prefWidth="111.0" />
+                  <Button fx:id="borrowreturnborrowbutton" layoutX="373.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#borrowbook" text="借书" />
+                  <TableView fx:id="borrowreturntableview" layoutY="52.0" onMouseClicked="#choosereturn" prefHeight="306.0" prefWidth="348.0">
+                    <columns>
+                      <TableColumn fx:id="borrowreturncolumnreaderid" prefWidth="75.0" text="读者ID" />
+                      <TableColumn fx:id="borrowreturncolumnbookid" prefWidth="142.0" text="书本ID" />
+                        <TableColumn fx:id="borrowreturncolumnbookname" prefWidth="45.0" text="书名" />
+                        <TableColumn fx:id="borrowreturncolumnendtime" prefWidth="44.0" text="还书时间" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label layoutX="300.0" layoutY="19.0" text="书籍ID：" />
+                  <TextField fx:id="borrowreturnbookidtextfield" layoutX="360.0" layoutY="14.0" />
+                  <TextField fx:id="borrowreturnoverdaytextfield" editable="false" layoutX="447.0" layoutY="156.0" prefHeight="30.0" prefWidth="128.0" />
+                  <Label layoutX="361.0" layoutY="161.0" text="超时天数：" />
+                  <Label layoutX="360.0" layoutY="101.0" text="是否超时：" />
+                  <TextField fx:id="borrowreturnovertimetextfield" editable="false" layoutX="447.0" layoutY="96.0" prefHeight="30.0" prefWidth="69.0" />
+               </children>
+            </AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="pulishmanage" text="罚单信息管理">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="28.0" text="读者ID：" />
+                  <TextField fx:id="pulishreaderidtextfield" layoutX="75.0" layoutY="23.0" />
+                  <TableView fx:id="pulishtableview" layoutY="81.0" prefHeight="231.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="pulishcolumnreaderid" prefWidth="75.0" text="读者ID" />
+                      <TableColumn fx:id="pulishcolumnreadername" prefWidth="75.0" text="读者姓名" />
+                        <TableColumn fx:id="pulishcolumnbookid" prefWidth="75.0" text="书籍ID" />
+                        <TableColumn fx:id="pulishcolumnbookname" prefWidth="75.0" text="书籍名称" />
+                        <TableColumn fx:id="pulishcolumnovertime" prefWidth="75.0" text="是否超时" />
+                        <TableColumn fx:id="pulishcolumnoverday" prefWidth="75.0" text="超时天数" />
+                        <TableColumn fx:id="pulishcolumnbroken" prefWidth="75.0" text="是否损坏" />
+                        <TableColumn fx:id="pulishcolumnfine" prefWidth="75.0" text="罚款金额" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="pulishfinebutton" layoutX="253.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#handlefine" text="缴纳罚款" />
+                  <Label layoutX="314.0" layoutY="28.0" text="总金额：" />
+                  <TextField fx:id="pulishfinetextfield" editable="false" layoutX="374.0" layoutY="23.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

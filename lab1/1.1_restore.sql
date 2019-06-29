@@ -1,0 +1,1 @@
+RESTORE DATABASE BikeStores FROM databackup

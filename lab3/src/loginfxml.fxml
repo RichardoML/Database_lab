@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.logincontroller">
+  	  <children>
+      <Label layoutX="124.0" layoutY="210.0" text="number" />
+      <TextField id="numbertext" fx:id="numbertext" layoutX="244.0" layoutY="205.0" />
+      <Label layoutX="124.0" layoutY="266.0" text="password" />
+      <TextField id="passwordtext" fx:id="passwordtext" layoutX="244.0" layoutY="261.0" />
+      <Label layoutX="201.0" layoutY="75.0" text="图书管理系统">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button id="readerlogin" fx:id="readerlogin" layoutX="126.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#readerlogin" text="reader_login" />
+      <Button id="adminlogin" fx:id="adminlogin" layoutX="291.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#adminlogin" text="admin_login" />
+   </children>
+</AnchorPane>

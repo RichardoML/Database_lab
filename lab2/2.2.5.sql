@@ -1,0 +1,17 @@
+CREATE TRIGGER GIVELIKE ON THUMB
+AFTER  UPDATE,INSERT 
+AS 
+IF  EXISTS
+(
+	SELECT *
+	FROM MBLOG,inserted 
+	WHERE MBLOG.[UID] = inserted.[UID]
+	AND MBLOG.[BID] = inserted.[BID]
+)
+BEGIN 
+PRINT '自己不能给自己点赞'
+ROLLBACK
+END
+
+
+ 

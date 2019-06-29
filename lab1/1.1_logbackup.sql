@@ -1,0 +1,1 @@
+BACKUP LOG BikeStores TO databackup

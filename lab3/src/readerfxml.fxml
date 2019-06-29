@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="outerTabpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.readercontroller">
+  <tabs>
+    <Tab fx:id="bookquerytab" text="书籍查询">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="bookquerytable" layoutY="82.0" prefHeight="278.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="bookquerycolumnbookid" prefWidth="76.0" text="书籍ID" />
+                      <TableColumn fx:id="bookquerycolumnbookname" prefWidth="68.0" text="书名" />
+                        <TableColumn fx:id="bookquerycolumnauthor" prefWidth="75.0" text="作者" />
+                        <TableColumn fx:id="bookquerycolumnpress" prefWidth="147.0" text="出版社" />
+                        <TableColumn fx:id="bookquerycolumnclass" prefWidth="60.0" text="类别" />
+                        <TableColumn fx:id="bookquerycolumnlocation" prefWidth="98.0" text="馆藏地址" />
+                        <TableColumn fx:id="bookquerycolumnfree" prefWidth="74.0" text="是否空闲" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="7.0" layoutY="14.0" text="书名：" />
+                  <TextField fx:id="bookquerybooknametextfield" layoutX="52.0" layoutY="9.0" promptText="所有" />
+                  <TextField fx:id="bookqueryauthortextfield" layoutX="324.0" layoutY="9.0" prefHeight="30.0" prefWidth="72.0" promptText="所有" />
+                  <Label layoutX="269.0" layoutY="14.0" text="作者：" />
+                  <Label layoutX="431.0" layoutY="14.0" text="类别：" />
+                  <TextField fx:id="bookqueryclasstextfield" layoutX="476.0" layoutY="9.0" prefHeight="16.0" prefWidth="77.0" promptText="所有" />
+                  <Label layoutX="7.0" layoutY="54.0" text="出版社：" />
+                  <TextField fx:id="bookquerypresstextfield" layoutX="67.0" layoutY="49.0" promptText="所有" />
+                  <RadioButton fx:id="bookqueryfreeradiobutton" layoutX="300.0" layoutY="54.0" mnemonicParsing="false" onAction="#querybook" onMouseClicked="#querybook" text="只看空闲" />
+                  <Button fx:id="bookqueryquerybutton" layoutX="431.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#querybook" text="查询" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="borrowquerytab" text="借书记录查询">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="borrowquerytable" layoutY="-2.0" prefHeight="360.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="borrowquerycolumnbookname" prefWidth="207.0" text="书本名称" />
+                      <TableColumn fx:id="borrowquerycolumnstarttime" minWidth="0.0" prefWidth="140.0" text="借书时间" />
+                        <TableColumn fx:id="borrowquerycolumnendtime" prefWidth="137.0" text="到期时间" />
+                        <TableColumn fx:id="borrowquerycolumnreturn" prefWidth="110.0" text="是否已还" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+    <Tab fx:id="infoquerytab" text="基本信息查询">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="166.0" layoutY="76.0" text="读者ID:" />
+                  <Label layoutX="169.0" layoutY="145.0" text="姓名：" />
+                  <Label layoutX="169.0" layoutY="208.0" text="性别：" />
+                  <Label layoutX="169.0" layoutY="273.0" text="密码：" />
+                  <TextField fx:id="infoqueryreaderidtextfield" editable="false" layoutX="225.0" layoutY="71.0" />
+                  <TextField fx:id="infoqueryreadernametextfield" editable="false" layoutX="225.0" layoutY="140.0" />
+                  <TextField fx:id="infoquerypasswordtextfield" editable="false" layoutX="225.0" layoutY="268.0" />
+                  <TextField fx:id="infoquerysextextfield" editable="false" layoutX="225.0" layoutY="203.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="renewtab" text="续借">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="renewtable" prefHeight="287.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="renewcolumnbookid" prefWidth="119.0" text="书籍ID" />
+                      <TableColumn fx:id="renewcolumnbookname" prefWidth="240.0" text="书籍名称" />
+                        <TableColumn fx:id="renewcolumnstarttime" prefWidth="116.0" text="借书时间" />
+                        <TableColumn fx:id="renewcolumnendtime" prefWidth="124.0" text="到期时间" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="renewbutton" layoutX="275.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#renewbook" text="续借" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="罚单">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="pulishtableview" prefHeight="362.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="pulishcolumnbookid" prefWidth="75.0" text="书籍ID" />
+                      <TableColumn fx:id="pulishcolumnbookname" prefWidth="192.0" text="书籍名称" />
+                        <TableColumn fx:id="pulishcolumnovertime" prefWidth="73.0" text="是否超时" />
+                        <TableColumn fx:id="pulishcolumnoverday" prefWidth="81.0" text="超时天数" />
+                        <TableColumn fx:id="pulishcolumnbroken" prefWidth="88.0" text="是否损坏" />
+                        <TableColumn fx:id="pulishcolumnfine" prefWidth="90.0" text="罚款金额" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

@@ -1,0 +1,4 @@
+SELECT *
+FROM MBLOG
+WHERE TITLE LIKE '%最多地铁站%' ESCAPE '\'
+ AND TITLE LIKE '%\_华中科技大学%'ESCAPE '\'

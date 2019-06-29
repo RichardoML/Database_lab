@@ -1,0 +1,1 @@
+GRANT select ON production.brands TO user1
